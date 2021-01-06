@@ -8,6 +8,7 @@
       body {
         height: 100vh;
         background-color: black;
+        display: flex;
       }
 
       div {
@@ -18,6 +19,24 @@
         border-radius: 10px;
       }
 
+      ul {
+        width: 100%;
+        position: fixed;
+        padding-left: 400px;
+        margin-top: 2px;
+      }
+
+      li {
+        height: 20px;
+        width: 140px;
+        background-color: #f0f0f3;
+        list-style: none;
+        display: inline-block;
+        text-align: center;
+        border-radius: 4px;
+        cursor: pointer;
+      }
+
       .special {
         background-color: cadetblue;
       }
@@ -25,20 +44,32 @@
   </head>
 
   <body>
-    <div></div>
-    <div></div>
-    <div></div>
-    <div></div>
-    <div></div>
-    <div></div>
-    <div></div>
-    <div class="special"></div>
-    <div></div>
-    <div></div>
-    <div></div>
-    <div></div>
-    <div></div>
-    <div></div>
+    <!-- Left side boxes -->
+
+    <div class="left">
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div class="special"></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+    </div>
+
+    <!-- Top right scroll btns -->
+
+    <ul class="right">
+      <li class="right__by">Scroll by 100px(y)</li>
+      <li class="right__to">Scroll to 100px(y)</li>
+      <li class="right__into">Scroll into special</li>
+    </ul>
 
     <script>
       // 1. queryselector로 special 가져오고 변수지정
@@ -50,6 +81,24 @@
         console.log(rect);
         console.log(`client: ${event.clientX}, ${event.clientY}`);
         console.log(`page: ${event.pageX}, ${event.pageY}`);
+      });
+
+      // Making Top-right btns
+      // 1. querySelector로 by가져오기
+      const by = document.querySelector(".right__by");
+      const to = document.querySelector(".right__to");
+      const into = document.querySelector(".right__into");
+      // 2. addEventListener
+      by.addEventListener("click", (event) => {
+        window.scrollBy(0, 100);
+      });
+
+      to.addEventListener("click", (event) => {
+        window.scrollTo(0, 100);
+      });
+
+      into.addEventListener("click", (event) => {
+        element.scrollTo(0, 100);
       });
     </script>
   </body>
