@@ -91,6 +91,7 @@
       // 2. addEventListener
       by.addEventListener("click", (event) => {
         window.scrollBy(0, 100);
+        //window.scrollBy({ top:100, left:0, behavior: 'smooth'}) => 이렇게 하면 smooth하게 scroll 가능
       });
 
       to.addEventListener("click", (event) => {
@@ -98,7 +99,7 @@
       });
 
       into.addEventListener("click", (event) => {
-        element.scrollTo(0, 100);
+        special.scrollIntoView();
       });
     </script>
   </body>
